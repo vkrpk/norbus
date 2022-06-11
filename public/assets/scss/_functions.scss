@@ -1,0 +1,15 @@
+@function getColor($color-name) {
+    @return map-get($map: $colors, $key: $color-name);
+}
+
+@function getFont($font-name) {
+    @return map-get($map: $fonts, $key: $font-name);
+}
+
+@function lightColor($color-name) {
+    @return lighten(getColor($color-name), 10%);
+}
+
+@function darkColor($color-name) {
+    @return darken($color-name, 10%);
+}

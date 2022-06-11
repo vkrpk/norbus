@@ -1,0 +1,86 @@
+@mixin taille {
+  width: 250px;
+  max-width: 400px;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: baseline;
+  color: getColor('black');
+  font-size: 1.5rem;
+  gap: 3rem;
+  * {
+    border-radius: 0.5rem !important;
+  }
+}
+.box-dates {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 3rem;
+  &-item {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+.labelAndfieldDirection {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  &:first-child {
+    margin-bottom: 1.5rem;
+  }
+  // &-item {
+  //   display: flex;
+  //   flex-flow: column;
+  // }
+}
+
+select {
+  @include taille();
+  height: 5rem;
+  padding: 0 4em 0 1em;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+      no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, $glass-icon 3em, $glass 3em);
+  box-shadow: $box-shadow;
+  option {
+    background-color: getColor('white');
+  }
+}
+
+.button {
+  padding: 0.5rem 1.5rem;
+  @include border(getColor('black'));
+  background-color: getColor('primary');
+  color: getColor('white');
+}
+
+input,
+textarea {
+  @include border(getColor('black'));
+  @include taille();
+  padding: 1.5rem 0rem;
+}
+
+label,
+.label-btn-radios {
+  align-self: center;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  box-shadow: none !important;
+  width: auto;
+}
+
+.label-btn-radios {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+input[type='date'] {
+  // width: ;
+}

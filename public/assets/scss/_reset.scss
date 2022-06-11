@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700|Roboto:100,300,400);
+
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 62.5%;
+  font-size: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background: $gradient;
+  min-height: 100vh;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'],
+button[disabled],
+html input[disabled],
+button::-moz-focus-inner,
+input::-moz-focus-inner,
+input[type='checkbox'],
+input[type='radio'],
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button,
+input[type='search'],
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  all: unset;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+button:hover,
+select {
+  cursor: pointer;
+}
+
+select,
+button {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}

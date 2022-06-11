@@ -1,0 +1,21 @@
+$colors: (
+    "primary": #2a3290,
+    "secondary": #989898,
+    "black": #444,
+    "white": #fff,
+);
+
+$fonts: (
+    "main-font": "Quicksand",
+    "font-secondary": "Roboto",
+);
+
+$border: 1px solid getColor("black");
+$border-radius: 0.5rem;
+$box-shadow: rgba(60, 64, 0.3) 0px 1px 2px 0px,
+    rgba(6, 19, 29, 0.15) 0px 2px 6px 2px;
+
+$glass: rgba(255, 255, 255, 0.9);
+$glass-icon: rgba(255, 255, 255, 0.3);
+$gradient: linear-gradient(180deg, getColor("secondary"), getColor("white"));
+$option: getColor("primary");

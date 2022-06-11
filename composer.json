@@ -1,0 +1,22 @@
+{
+  "name": "kruvi/norbus",
+  "autoload": {
+    "psr-4": {
+      "Router\\": "routes/",
+      "App\\": "app/",
+      "Exceptions\\": "Exceptions/",
+      "Database\\": "database/"
+    }
+  },
+  "authors": [
+    {
+      "name": "vkrpk",
+      "email": "victor.krupka@orange.fr"
+    }
+  ],
+  "require": {
+    "symfony/error-handler": "^6.1",
+    "symfony/var-dumper": "^6.1",
+    "fzaninotto/faker": "^1.5"
+  }
+}

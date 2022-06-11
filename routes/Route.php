@@ -2,6 +2,7 @@
 
 namespace Router;
 
+use Database\Config;
 use Database\DBConnection;
 
 class Route
@@ -31,8 +32,19 @@ class Route
 
     public function execute()
     {
+        if($_SERVER["SERVER_NAME"] !== "norbus.test"){
+            $host = 'eu-cdbr-west-02.cleardb.net';
+            $user = 'b857ac46ef3acc';
+            $password= '83d0638c';
+            $db_name = 'heroku_a07462fa3a91fd4';
+       } else {
+           $host = '127.0.0.1';
+           $user = 'root';
+           $password= '';
+           $db_name = 'norbus';
+       }
         $params = explode('@', $this->action);
-        $controller = new $params[0](new DBConnection("heroku_a07462fa3a91fd4", 'eu-cdbr-west-02.cleardb.net', 'b857ac46ef3acc', '83d0638c'));
+        $controller = new $params[0](new DBConnection($db_name, $host, $user, $password));
         $method = $params[1];
 
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();

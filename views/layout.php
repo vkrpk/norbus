@@ -16,7 +16,10 @@
         <div class="content">
             <?= $content ?>
         </div>
-        <footer>Copyright 2022 Victor Krupka</footer>
+        <footer>
+            Copyright 2022 Victor Krupka
+            <a href="<?= ROOT . '/database/faker.php' ?>">Faker</a>
+        </footer>
         <script>
             $(window).scroll(function() {
                 if ($(document).scrollTop() > 50) {

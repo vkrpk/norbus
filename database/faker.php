@@ -4,7 +4,7 @@ use Database\DBConnection;
 use Faker\Factory;
 
 require './vendor/autoload.php';
-$DBConnection = new DBConnection("heroku_a07462fa3a91fd4", 'eu-cdbr-west-02.cleardb.net', 'b857ac46ef3acc', '83d0638c');
+$DBConnection = new DBConnection("norbus", '127.0.0.1', 'root', '');
 $pdo = $DBConnection->getPDO();
 
 $faker = Faker\Factory::create('fr_FR'); // create a French faker
@@ -29,4 +29,5 @@ for ($i = 0; $i < 30; $i++) {
     )";
     $pdo->exec($query);
 }
-
+?>
+<h1>Fkar</h1>

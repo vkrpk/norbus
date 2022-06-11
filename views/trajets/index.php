@@ -46,7 +46,11 @@ for ($i=0; $i <= 10 ; $i++) {
             name="contact" value="telephone">
             <label for="contactChoice2">Non</label>
         </div>
-  </div>
+
+    </div>
+    <div>
+        <p>Prix estimé :</p>
+    </div>
     <button type="submit" class="button">Envoyer</button>
 </form>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, corporis eveniet est, corrupti tempore magnam fugit quis enim soluta nam nemo rerum perspiciatis odio aliquid voluptatem architecto quia natus maxime fugiat recusandae. Molestias consectetur iste velit quidem similique cum enim neque sequi ea, voluptatum architecto, laborum, saepe autem ex reiciendis!</p>

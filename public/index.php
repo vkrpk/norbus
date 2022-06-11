@@ -17,10 +17,8 @@ use Exceptions\RouteNotFoundException;
 
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) );
-// dd(SCRIPTS);
-// define('ROOT', dirname(__DIR__));
-// echo ROOT;
-// var_dump($_GET['url']);
+define('ROOT', dirname(__DIR__));
+
 $router = new Router($_GET['url']);
 
 $router->get('/home', 'App\Controllers\TrajetController@welcome');

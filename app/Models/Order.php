@@ -1,18 +1,16 @@
 <?php
-
 namespace App\Models;
 
 use DateTime;
 
-
-class Ville extends Model
+class Order extends Model
 {
-    protected $table = 'villes';
+    protected string $table = 'orders';
 
     public function getCreatedAt()
     {
         $date = new DateTime();
-        $date = $date->format('d/m/Y H:m');
+        $date = $date->format('d/m/Y H\hm');
         return $date;
     }
 }

@@ -18,6 +18,10 @@ use Exceptions\RouteNotFoundException;
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) );
 define('ROOT', dirname(__DIR__));
+define('DB_NAME', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'heroku_a07462fa3a91fd4' : 'norbus');
+define('DB_HOST', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'eu-cdbr-west-02.cleardb.net' : '127.0.0.1');
+define('DB_USER', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'b857ac46ef3acc' : 'root');
+define('DB_PWD', $_SERVER["SERVER_NAME"] !== "norbus.test" ? '83d0638c' : '');
 
 $router = new Router($_GET['url']);
 

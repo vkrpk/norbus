@@ -7,12 +7,16 @@ for ($i=0; $i <= 10 ; $i++) {
     $objet->nom = $i;
     $zeroToDixArray[] = $objet;
 }
-
 if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
     // $_POST = filter_input_array(INPUT_POST, [
     //     'depart' =>
     // ])
     // dd($_POST);
+}
+?>
+<?php
+foreach ($params['villes'] as $ville) {
+   echo $ville->getCreatedAt();
 }
 ?>
 <form action="/" method="POST">

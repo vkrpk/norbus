@@ -32,19 +32,19 @@ class Route
 
     public function execute()
     {
-        if($_SERVER["SERVER_NAME"] !== "norbus.test"){
-            $host = 'eu-cdbr-west-02.cleardb.net';
-            $user = 'b857ac46ef3acc';
-            $password= '83d0638c';
-            $db_name = 'heroku_a07462fa3a91fd4';
-       } else {
-           $host = '127.0.0.1';
-           $user = 'root';
-           $password= '';
-           $db_name = 'norbus';
-       }
+    //     if($_SERVER["SERVER_NAME"] !== "norbus.test"){
+    //         $host = 'eu-cdbr-west-02.cleardb.net';
+    //         $user = 'b857ac46ef3acc';
+    //         $password= '83d0638c';
+    //         $db_name = 'heroku_a07462fa3a91fd4';
+    //    } else {
+    //        $host = '127.0.0.1';
+    //        $user = 'root';
+    //        $password= '';
+    //        $db_name = 'norbus';
+    //    }
         $params = explode('@', $this->action);
-        $controller = new $params[0](new DBConnection($db_name, $host, $user, $password));
+        $controller = new $params[0](new DBConnection(DB_NAME, DB_HOST, DB_USER, DB_PWD));
         $method = $params[1];
 
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();

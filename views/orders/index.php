@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
     // $_POST = filter_input_array(INPUT_POST, [
     //     'depart' =>
     // ])
-    dd($_POST);
+    // dd($_POST);
 }
 ?>
 <form action="/" method="POST">

@@ -20,6 +20,11 @@ class DBConnection
         $this->password = $password;
     }
 
+    /**
+     *
+     *
+     * @return PDO
+     */
     public function getPDO(): PDO
     {
         return $this->pdo ?? new PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->username, $this->password, [

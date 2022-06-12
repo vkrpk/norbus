@@ -2,13 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\Ville;
+use App\Controllers\Controller;
+
 class VilleController extends Controller
 {
     public function index()
     {
-        $stmt = $this->db->getPDO()->query('SELECT * FROM villes ORDER by nom');
-        $villes = $stmt->fetchAll();
-
+        $ville = new Ville($this->getDB());
+        $villes = $ville->all();
         return $this->view('orders.index', compact('villes'));
     }
 }

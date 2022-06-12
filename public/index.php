@@ -21,8 +21,9 @@ define('ROOT', dirname(__DIR__));
 
 $router = new Router($_GET['url']);
 
-$router->get('/home', 'App\Controllers\TrajetController@welcome');
-$router->get('/', 'App\Controllers\TrajetController@index');
-$router->get('/trajets/:id', 'App\Controllers\TrajetController@show');
+$router->get('/home', 'App\Controllers\OrderController@welcome');
+// $router->post('/', 'App\Controllers\OrderController@index');
+$router->get('/', 'App\Controllers\VilleController@index');
+$router->get('/orders/:id', 'App\Controllers\OrderController@show');
 
 $router->run();

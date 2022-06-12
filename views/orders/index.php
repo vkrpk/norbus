@@ -7,6 +7,13 @@ for ($i=0; $i <= 10 ; $i++) {
     $objet->nom = $i;
     $zeroToDixArray[] = $objet;
 }
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
+    // $_POST = filter_input_array(INPUT_POST, [
+    //     'depart' =>
+    // ])
+    dd($_POST);
+}
 ?>
 <form action="/" method="POST">
     <div>
@@ -29,21 +36,21 @@ for ($i=0; $i <= 10 ; $i++) {
         <div>
             <p class="label-btn-radios">Couchette</p>
             <input type="radio" id="contactChoice1"
-            name="contact" value="email">
+            name="couchette" value="oui">
             <label for="contactChoice1">Oui</label>
             <input type="radio" id="contactChoice2"
-            name="contact" value="telephone">
+            name="couchette" value="non">
             <label for="contactChoice2">Non</label>
         </div>
 
         <div>
             <p class="label-btn-radios">Aller retour</p>
             <input type="radio" id="contactChoice1"
-            name="contact" value="email">
+            name="aller_retour" value="oui">
             <label for="contactChoice1">Oui</label>
 
             <input type="radio" id="contactChoice2"
-            name="contact" value="telephone">
+            name="aller_retour" value="non">
             <label for="contactChoice2">Non</label>
         </div>
 

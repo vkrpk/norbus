@@ -12,29 +12,30 @@
 <body>
     <div id="page">
         <?= require_once VIEWS . DIRECTORY_SEPARATOR . "includes" . DIRECTORY_SEPARATOR . "navbar.php";?>
-
-        <div class="content">
-            <?= $content ?>
+        <div class="container">
+            <div class="content">
+                <?= $content ?>
+            </div>
         </div>
-        <footer>
-            Copyright 2022 Victor Krupka
-            <a href="<?= ROOT . '/database/faker.php' ?>">Faker</a>
-        </footer>
-        <script>
-            $(window).scroll(function() {
-                if ($(document).scrollTop() > 50) {
-                    $('.nav').addClass('affix');
-                } else {
-                    $('.nav').removeClass('affix');
-                }
-            });
+            <footer>
+                Copyright 2022 Victor Krupka
+                <a href="<?= ROOT . '/database/faker.php' ?>">Faker</a>
+            </footer>
+            <script>
+                $(window).scroll(function() {
+                    if ($(document).scrollTop() > 50) {
+                        $('.nav').addClass('affix');
+                    } else {
+                        $('.nav').removeClass('affix');
+                    }
+                });
 
-            $(".navTrigger").click(function () {
-            $(this).toggleClass("active");
-            $("#mainListDiv").toggleClass("show_list");
-            $("#mainListDiv").fadeIn();
-        });
-        </script>
+                $(".navTrigger").click(function () {
+                $(this).toggleClass("active");
+                $("#mainListDiv").toggleClass("show_list");
+                $("#mainListDiv").fadeIn();
+            });
+            </script>
     </div>
 </body>
 </html>

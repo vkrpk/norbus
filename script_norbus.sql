@@ -8,17 +8,6 @@ CREATE TABLE villes(
    PRIMARY KEY(id)
 );
 
-CREATE TABLE trajets(
-   id INT AUTO_INCREMENT,
-   date_aller DATE NOT NULL,
-   date_retour DATE,
-   fk_arrivee_id INT NOT NULL,
-   fk_depart_id INT NOT NULL,
-   PRIMARY KEY(id),
-   FOREIGN KEY(fk_arrivee_id) REFERENCES villes(id),
-   FOREIGN KEY(fk_depart_id) REFERENCES villes(id)
-);
-
 CREATE TABLE users(
    id INT AUTO_INCREMENT,
    mail VARCHAR(50)  NOT NULL,
@@ -32,14 +21,16 @@ CREATE TABLE users(
 );
 
 CREATE TABLE reservations(
-   fk_trajet_id INT,
-   fk_user_id INT,
-   id INT AUTO_INCREMENT NOT NULL,
-   created_at DATETIME NOT NULL,
-   updated_at DATETIME,
+   id INT AUTO_INCREMENT,
+   place INT NOT NULL,
    couchette BOOLEAN NOT NULL,
-   PRIMARY KEY(fk_trajet_id, fk_user_id),
-   FOREIGN KEY(fk_trajet_id) REFERENCES trajets(id),
+   fk_reservation_retour_id INT,
+   fk_reservation_aller_id INT NOT NULL,
+   fk_user_id INT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(fk_reservation_retour_id) REFERENCES villes(id),
+   FOREIGN KEY(fk_reservation_aller_id) REFERENCES villes(id),
    FOREIGN KEY(fk_user_id) REFERENCES users(id)
 );
+
 

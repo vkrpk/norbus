@@ -5,7 +5,9 @@ use Router\Router;
 use Symfony\Component\Debug\Debug;
 use Exceptions\RouteNotFoundException;
 
-
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 // or enable only one feature
 //ErrorHandler::register();
 //DebugClassLoader::enable();
@@ -28,6 +30,6 @@ $router = new Router($_GET['url']);
 $router->get('/home', 'App\Controllers\OrderController@welcome');
 // $router->post('/', 'App\Controllers\OrderController@index');
 $router->get('/', 'App\Controllers\VilleController@index');
-$router->get('/orders/:id', 'App\Controllers\OrderController@show');
+$router->get('/order/:id', 'App\Controllers\OrderController@show');
 
 $router->run();

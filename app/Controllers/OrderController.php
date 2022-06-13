@@ -2,13 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\Option;
+use App\Models\Order;
 use PDO;
 
 class OrderController extends Controller
 {
     public function welcome()
     {
-        return $this->view('orders.welcome');
+        $order = new Order($this->getDB());
+        $orders = $order->all();
+
+        return $this->view('orders.welcome', compact('orders'));
     }
 
     public function index()
@@ -24,13 +29,11 @@ class OrderController extends Controller
 
     public function show(int $id)
     {
-        $stmt = $this->db->getPDO()->prepare("
+        $orderModel = new Order($this->getDB());
+        $order = $orderModel->query("
             SELECT o.*, v.nom 'ville_depart_aller', va.nom 'ville_depart_retour', CONCAT(u.prenom, ' ', u.nom) as noms FROM orders o JOIN villes v ON o.fk_ville_aller_id = v.id JOIN villes va ON o.fk_ville_retour_id = va.id JOIN users u ON o.fk_user_id = u.id WHERE o.id = ?
-        ");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
-        $stmt->execute([$id]);
-        $order = $stmt->fetch();
-        // dd($order);
+        ", $id, true);
+
         return $this->view('orders.show', compact('order'));
     }
 }

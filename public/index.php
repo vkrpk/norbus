@@ -31,5 +31,6 @@ $router->get('/home', 'App\Controllers\OrderController@welcome');
 // $router->post('/', 'App\Controllers\OrderController@index');
 $router->get('/', 'App\Controllers\VilleController@index');
 $router->get('/order/:id', 'App\Controllers\OrderController@show');
+$router->get('/option/:id', 'App\Controllers\OrderController@option');
 
 $router->run();

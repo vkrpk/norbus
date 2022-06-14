@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use PDO;
+use DateTime;
 use Database\DBConnection;
 
 abstract class Model
@@ -39,8 +40,5 @@ abstract class Model
         }
     }
 
-    public function getOptions()
-    {
-        return $this->query("SELECT o.nom FROM options o JOIN option_order op ON o.id = op.fk_option_id JOIN orders ord ON op.fk_order_id = ord.id WHERE ord.id = ?", $this->id);
-    }
+
 }

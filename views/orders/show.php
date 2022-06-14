@@ -5,6 +5,6 @@
 <p>Couchette : <?= $params['order']->couchette === 1 ? 'Oui' : 'Non';?></p>
 <p>Nombre de places : <?= $params['order']->place?></p>
 <p>Créé le : <?= $params['order']->getCreatedAt() ?></p>
-<?php foreach ($params['order']->getOptions() as $i): ?>
-    <p><?= $i->nom ?></p>
+<?php foreach ($params['order']->getOptions() as $option): ?>
+    <a href="/option/<?= $option->id ?>"><?= $option->nom ?></a>
 <?php endforeach ?>

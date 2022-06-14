@@ -36,4 +36,11 @@ class OrderController extends Controller
 
         return $this->view('orders.show', compact('order'));
     }
+
+    public function option(int $id)
+    {
+        $option = (new Option($this->db))->findById($id);
+
+        return $this->view('orders.option', compact('option'));
+    }
 }

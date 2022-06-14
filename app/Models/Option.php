@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use DateTime;
-
-
 class Option extends Model
 {
     protected $table = 'options';
 
-    public function getCreatedAt()
+    public function getOrders()
     {
-        $date = new DateTime();
-        $date = $date->format('d/m/Y H:m');
-        return $date;
+       return $this->query("SELECT orders.* FROM orders
+        JOIN option_order ON option_order.fk_order_id = orders.id
+        WHERE option_order.fk_option_id = ?
+        ", $this->id);
     }
 }

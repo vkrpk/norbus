@@ -22,6 +22,8 @@ HTML;
 
     public function getOptions()
     {
-        return $this->query("SELECT o.nom FROM options o JOIN option_order op ON o.id = op.fk_option_id JOIN orders ord ON op.fk_order_id = ord.id WHERE ord.id = ?", $this->id);
+        return $this->query("SELECT o.* FROM options o
+        JOIN option_order op ON o.id = op.fk_option_id
+        WHERE op.fk_order_id = ?", $this->id);
     }
 }

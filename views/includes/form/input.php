@@ -17,7 +17,7 @@ function insertSelect(string $label, string $name, array $options){
         $option->nom . "</option>";
     }
     return "
-        <div class='labelAndfieldDirection'>
+        <div class='selectInputDirection'>
             <label for='$name'>$label</label>
             <select name='$name' id='$name'>" .
             implode('', $html_options) .

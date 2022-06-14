@@ -14,11 +14,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
     // dd($_POST);
 }
 ?>
-<?php
-foreach ($params['villes'] as $ville) {
-   echo $ville->getCreatedAt();
-}
-?>
+
+<h1>Réservez votre trajet en bus</h1>
+
 <form action="/" method="POST">
     <div>
         <?= insertSelect('Départ', 'depart', $params['villes']) ?>
@@ -30,35 +28,24 @@ foreach ($params['villes'] as $ville) {
         <?= insertInput('Retour', 'date_retour', 'date') ?>
     </div>
 
-
     <div>
         <?= insertSelect('Adultes', 'adultes', $zeroToDixArray) ?>
         <?= insertSelect('Enfants', 'enfants', $zeroToDixArray) ?>
     </div>
 
     <div class="box-dates">
-        <div>
-            <p class="label-btn-radios">Couchette</p>
-            <input type="radio" id="contactChoice1"
-            name="couchette" value="oui">
-            <label for="contactChoice1">Oui</label>
-            <input type="radio" id="contactChoice2"
-            name="couchette" value="non">
-            <label for="contactChoice2">Non</label>
-        </div>
-
-        <div>
+        <div class="form-radios">
             <p class="label-btn-radios">Aller retour</p>
-            <input type="radio" id="contactChoice1"
+            <input type="radio" id="oui"
             name="aller_retour" value="oui">
-            <label for="contactChoice1">Oui</label>
+            <label for="oui">Oui</label>
 
-            <input type="radio" id="contactChoice2"
+            <input type="radio" id="non"
             name="aller_retour" value="non">
-            <label for="contactChoice2">Non</label>
+            <label for="non">Non</label>
         </div>
-
     </div>
+
     <div>
         <p>Prix estimé :</p>
     </div>

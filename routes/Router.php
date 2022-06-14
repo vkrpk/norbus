@@ -35,7 +35,8 @@ class Router
                 return $route->execute();
             }
         }
-        return header('HTTP/1.0 404 Not Found');
+
+        throw new \Exception("La page demandé est introuvable.");
     }
 
 

@@ -1,0 +1,42 @@
+@import './date', './radio', './select';
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: baseline;
+  color: getColor('black');
+  font-size: 1.5rem;
+  gap: 3rem;
+  * {
+    border-radius: 0.5rem !important;
+  }
+  // & div:first-child {
+  //   margin-right: auto;
+  // }
+}
+
+.button {
+  padding: 0.5rem 1.5rem;
+  @include border(getColor('black'));
+  background-color: getColor('primary');
+  color: getColor('white');
+}
+
+input,
+textarea {
+  @include border(getColor('black'));
+  width: 250px;
+  max-width: 400px;
+  padding: 1.5rem 0rem;
+}
+
+label {
+  align-self: center;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  box-shadow: none !important;
+  width: auto;
+}

@@ -1,0 +1,28 @@
+.selectInputDirection {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  width: 100%;
+  &:first-child {
+    margin-bottom: 1.5rem;
+    margin-right: auto;
+  }
+}
+
+select {
+  width: 250px;
+  max-width: 400px;
+  height: 5rem;
+  padding: 0 4em 0 1em;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+      no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, $glass-icon 3em, $glass 3em);
+  box-shadow: $box-shadow;
+  option {
+    background-color: getColor('white');
+  }
+}
+
+.arrivee-dp-none {
+  display: none;
+}

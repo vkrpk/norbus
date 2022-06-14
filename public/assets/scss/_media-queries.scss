@@ -61,3 +61,19 @@
     margin-top: 0px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  form {
+    div {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+  .box-dates {
+    flex-flow: row nowrap !important;
+    width: 510px;
+    &-item {
+      width: 240px;
+    }
+  }
+}

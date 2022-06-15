@@ -9,11 +9,14 @@ for ($i=0; $i <= 10 ; $i++) {
 }
 ?>
 <h1>Formulaire de modification de la commande <?= $params['order']->id ?></h1>
+<?php
+//  dd($params['order']->getVilleDepart($params['order']->id)->nom)
+ ?>
 
 <form action="/admin/order/edit/<?= $params['order']->id ?>" method="POST" class="form-add-order">
     <div>
         <?= insertSelect('Départ', 'depart', $params['villes'], $params['order']->fk_ville_depart_id) ?>
-        <?= insertSelect('Arrivée', 'arrivee', $params['villes']) ?>
+        <?= insertSelect('Arrivée', 'arrivee', $params['villes'], $params['order']->fk_ville_arrivee_id) ?>
     </div>
 
     <div class="box-select">

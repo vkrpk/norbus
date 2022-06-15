@@ -12,7 +12,11 @@ function insertInput(string $label, string $name, string $type){
 function insertSelect(string $label, string $name, array $options, $value = null){
     $html_options = [];
     foreach ($options as $key => $option) {
-        $html_options[] = "<option value='" . $option->id . "'>" .
+        $isSelected ="";
+        if($value !== null && $value === $option->id){
+            $isSelected = "selected";
+        }
+        $html_options[] = "<option $isSelected value='" . $value . "'>" .
         $option->nom . "</option>";
     }
     return "

@@ -27,6 +27,16 @@ class OrderController extends Controller
         }
     }
 
+    public function update(int $id)
+    {
+        $order = new Order($this->getDB());
+        $result = $order->update($id, $_POST);
+
+        if($result){
+            return header('Location: /admin/orders');
+        }
+    }
+
     public function edit(int $id)
     {
         $order = (new Order($this->getDB()))->findById($id);

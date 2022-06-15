@@ -3,10 +3,10 @@
 function insertInput(string $label, string $name, string $type, $value = null){
     return <<<HTML
         <div class='box-dates-item'>
-            <label for="$name">$label</label>
-            <input type="$type" value="{$value}">
+            <label for="date{$label}">$label</label>
+            <input id="date{$label}" type="$type" value="{$value}" name="{$name}">
         </div>
-    HTML;
+HTML;
 }
 
 function insertSelect(string $label, string $name, array $options, $value = null){
@@ -16,7 +16,7 @@ function insertSelect(string $label, string $name, array $options, $value = null
         if($value !== null && $value === $option->id){
             $isSelected = "selected";
         }
-        $html_options[] = "<option $isSelected value='" . $value . "'>" .
+        $html_options[] = "<option $isSelected value='" . $option->id . "'>" .
         $option->nom . "</option>";
     }
     return "

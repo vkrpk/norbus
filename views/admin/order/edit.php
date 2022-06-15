@@ -15,18 +15,18 @@ for ($i=0; $i <= 10 ; $i++) {
 
 <form action="/admin/order/edit/<?= $params['order']->id ?>" method="POST" class="form-add-order">
     <div>
-        <?= insertSelect('Départ', 'depart', $params['villes'], $params['order']->fk_ville_depart_id) ?>
-        <?= insertSelect('Arrivée', 'arrivee', $params['villes'], $params['order']->fk_ville_arrivee_id) ?>
+        <?= insertSelect('Départ', 'fk_ville_depart_id', $params['villes'], $params['order']->fk_ville_depart_id) ?>
+        <?= insertSelect('Arrivée', 'fk_ville_arrivee_id', $params['villes'], $params['order']->fk_ville_arrivee_id) ?>
     </div>
 
     <div class="box-select">
-        <?= insertInput('Aller', 'date_fin', 'date', $params['order']->date_aller) ?>
+        <?= insertInput('Aller', 'date_aller', 'date', $params['order']->date_aller) ?>
         <?= insertInput('Retour', 'date_retour', 'date', $params['order']->date_retour) ?>
     </div>
 
     <div>
-        <?= insertSelect('Adultes', 'adultes', $zeroToDixArray, $params['order']->adulte) ?>
-        <?= insertSelect('Enfants', 'enfants', $zeroToDixArray, $params['order']->enfant) ?>
+        <?= insertSelect('Adultes', 'adulte', $zeroToDixArray, $params['order']->adulte) ?>
+        <?= insertSelect('Enfants', 'enfant', $zeroToDixArray, $params['order']->enfant) ?>
     </div>
 
     <div class="form-radios">
@@ -41,11 +41,11 @@ for ($i=0; $i <= 10 ; $i++) {
         ?>
         <p class="label-btn-radios">Aller retour</p>
         <input type="radio" id="oui"
-        name="aller_retour" value="1" <?= $oui ?>>
+        name="bool_aller_retour" value="1" <?= $oui ?>>
         <label for="oui">Oui</label>
 
         <input type="radio" id="non"
-        name="aller_retour" value="0" <?= $non ?>>
+        name="bool_aller_retour" value="0" <?= $non ?>>
         <label for="non">Non</label>
     </div>
 

@@ -11,6 +11,6 @@ class Option extends Model
        return $this->query("SELECT orders.* FROM orders
         JOIN option_order ON option_order.fk_order_id = orders.id
         WHERE option_order.fk_option_id = ?
-        ", $this->id);
+        ", [$this->id]);
     }
 }

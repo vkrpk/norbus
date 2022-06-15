@@ -24,16 +24,16 @@ HTML;
     {
         return $this->query("SELECT o.* FROM options o
         JOIN option_order op ON o.id = op.fk_option_id
-        WHERE op.fk_order_id = ?", $this->id);
+        WHERE op.fk_order_id = ?", [$this->id]);
     }
 
     public function getVilleDepart(int $id)
     {
-        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_depart_id WHERE o.id = ?", $id, true);
+        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_depart_id WHERE o.id = ?", [$id], true);
     }
 
     public function getVilleArrivee(int $id)
     {
-        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_arrivee_id WHERE o.id = ?", $id, true);
+        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_arrivee_id WHERE o.id = ?", [$id], true);
     }
 }

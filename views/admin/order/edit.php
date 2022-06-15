@@ -20,23 +20,32 @@ for ($i=0; $i <= 10 ; $i++) {
     </div>
 
     <div class="box-select">
-        <?= insertInput('Aller', 'date_fin', 'date') ?>
-        <?= insertInput('Retour', 'date_retour', 'date') ?>
+        <?= insertInput('Aller', 'date_fin', 'date', $params['order']->date_aller) ?>
+        <?= insertInput('Retour', 'date_retour', 'date', $params['order']->date_retour) ?>
     </div>
 
     <div>
-        <?= insertSelect('Adultes', 'adultes', $zeroToDixArray) ?>
-        <?= insertSelect('Enfants', 'enfants', $zeroToDixArray) ?>
+        <?= insertSelect('Adultes', 'adultes', $zeroToDixArray, $params['order']->adulte) ?>
+        <?= insertSelect('Enfants', 'enfants', $zeroToDixArray, $params['order']->enfant) ?>
     </div>
 
     <div class="form-radios">
+        <?php
+            if($params['order']->bool_aller_retour == 1) {
+                $oui = 'checked';
+                $non = '';
+            } else {
+                $non = 'checked';
+                $oui = '';
+            }
+        ?>
         <p class="label-btn-radios">Aller retour</p>
         <input type="radio" id="oui"
-        name="aller_retour" value="oui">
+        name="aller_retour" value="1" <?= $oui ?>>
         <label for="oui">Oui</label>
 
         <input type="radio" id="non"
-        name="aller_retour" value="non">
+        name="aller_retour" value="0" <?= $non ?>>
         <label for="non">Non</label>
     </div>
 

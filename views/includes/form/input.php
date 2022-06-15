@@ -1,10 +1,10 @@
 <?php
 
-function insertInput(string $label, string $name, string $type){
+function insertInput(string $label, string $name, string $type, $value = null){
     return <<<HTML
         <div class='box-dates-item'>
             <label for="$name">$label</label>
-            <input type="$type">
+            <input type="$type" value="{$value}">
         </div>
     HTML;
 }

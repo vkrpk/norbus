@@ -7,19 +7,12 @@ for ($i=0; $i <= 10 ; $i++) {
     $objet->nom = $i;
     $zeroToDixArray[] = $objet;
 }
-if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
-    // $_POST = filter_input_array(INPUT_POST, [
-    //     'depart' =>
-    // ])
-    // dd($_POST);
-}
 ?>
+<h1>Formulaire de modification de la commande <?= $params['order']->id ?></h1>
 
-<h1>Réservez votre trajet en bus</h1>
-
-<form action="/" method="POST" class="form-add-order">
+<form action="/admin/order/edit/<?= $params['order']->id ?>" method="POST" class="form-add-order">
     <div>
-        <?= insertSelect('Départ', 'depart', $params['villes']) ?>
+        <?= insertSelect('Départ', 'depart', $params['villes'], $params['order']->fk_ville_depart_id) ?>
         <?= insertSelect('Arrivée', 'arrivee', $params['villes']) ?>
     </div>
 
@@ -46,4 +39,3 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
 
     <button type="submit" class="button">Envoyer</button>
 </form>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, corporis eveniet est, corrupti tempore magnam fugit quis enim soluta nam nemo rerum perspiciatis odio aliquid voluptatem architecto quia natus maxime fugiat recusandae. Molestias consectetur iste velit quidem similique cum enim neque sequi ea, voluptatum architecto, laborum, saepe autem ex reiciendis!</p>

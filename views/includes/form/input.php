@@ -9,9 +9,8 @@ function insertInput(string $label, string $name, string $type){
     HTML;
 }
 
-function insertSelect(string $label, string $name, array $options){
+function insertSelect(string $label, string $name, array $options, $value = null){
     $html_options = [];
-
     foreach ($options as $key => $option) {
         $html_options[] = "<option value='" . $option->id . "'>" .
         $option->nom . "</option>";
@@ -23,6 +22,6 @@ function insertSelect(string $label, string $name, array $options){
             implode('', $html_options) .
             "</select>
         </div>";
- }
+}
 
 

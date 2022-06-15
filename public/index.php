@@ -34,6 +34,11 @@ $router->get('/', 'App\Controllers\VilleController@index');
 $router->get('/order/:id', 'App\Controllers\OrderController@show');
 $router->get('/option/:id', 'App\Controllers\OrderController@option');
 
+$router->get('/admin/orders', 'App\Controllers\Admin\OrderController@index');
+$router->post('/admin/oder/delete/:id', 'App\Controllers\Admin\OrderController@destroy');
+$router->get('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@edit');
+$router->post('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@update');
+
 try {
     $router->run();
 } catch (NotFoundException $e) {

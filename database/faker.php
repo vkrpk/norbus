@@ -30,15 +30,19 @@ for ($i=1; $i <= 30; $i++) {
 // dd($faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years', $timezone = 'Europe/Paris'));
 
 for ($i = 1; $i <= 30; $i++) {
-    // $dateDepart = $faker->dateTimeBetween($startDate = 'now', $endDate = '+7 days');
-    // $dateRetour = $faker->dateTimeBetween($startDate = $dateDepart,  $endDate = '+7 days');
-    $query = "INSERT INTO orders (place, couchette, fk_ville_aller_id, fk_ville_retour_id, fk_user_id) VALUES (
-    {$faker->numberBetween(1, 5)},
+    $dateDepart = $faker->dateTimeBetween($startDate = 'now', $endDate = '+7 days')->format('Y-m-d');
+    print_r($dateDepart);
+    $dateRetour = $faker->dateTimeBetween($startDate = $dateDepart,  $endDate = '+7 days')->format('Y-m-d');
+    // $now = (new DateTime()getTimestamp())->format('Y-m-d H:i:s');
+    $query = "INSERT INTO orders ( date_aller, date_retour, bool_aller_retour, adulte, enfant, fk_ville_arrivee_id, fk_ville_depart_id, fk_user_id) VALUES (
+    '{$dateDepart}',
+    '{$dateRetour}',
     {$faker->numberBetween(0, 1)},
+    {$faker->numberBetween(1, 5)},
+    {$faker->numberBetween(1, 5)},
     {$faker->numberBetween(2, 30)},
     {$faker->numberBetween(2, 30)},
     {$i}
-    -- {$faker->numberBetween(2, 30)}
     )";
     $pdo->exec($query);
     // '{$dateDepart->format('Y-m-d H-i-s' )}',
@@ -52,14 +56,14 @@ for ($i = 0; $i < count($options); $i++) {
     $pdo->exec($query);
 }
 
-for ($i=1; $i <= 13; $i++) {
-    $option = array_rand($options);
-    $query = "INSERT INTO option_order (fk_order_id, fk_option_id) VALUES (
-        {$i},
-        {$i}
-    )";
-    $pdo->exec($query);
-}
+// for ($i=1; $i <= 13; $i++) {
+//     $option = array_rand($options);
+//     $query = "INSERT INTO option_order (fk_order_id, fk_option_id) VALUES (
+//         {$i},
+//         {$i}
+//     )";
+//     $pdo->exec($query);
+// }
 
 // $options = ['petit-déjeuner', 'déjeuner', 'diner', 'couchette'];
 

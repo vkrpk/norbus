@@ -10,7 +10,7 @@ class Order extends Model
 
     public function getCreatedAt(): string
     {
-        return (new DateTime($this->created_at))->format('d/m/Y à H\hm');
+        return (new DateTime($this->created_at))->format('d/m/Y à H\hi');
     }
 
     public function getButton(): string

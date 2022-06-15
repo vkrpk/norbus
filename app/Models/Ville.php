@@ -2,17 +2,12 @@
 
 namespace App\Models;
 
-use DateTime;
-
-
 class Ville extends Model
 {
     protected $table = 'villes';
 
-    public function getCreatedAt()
+    public function getVilles()
     {
-        $date = new DateTime();
-        $date = $date->format('d/m/Y H:m');
-        return $date;
+        return $this->query("SELECT * FROM villes");
     }
 }

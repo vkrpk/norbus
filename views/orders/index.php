@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
         <?= insertSelect('Arrivée', 'arrivee', $params['villes']) ?>
     </div>
 
-    <div class="box-dates">
+    <div class="box-select">
         <?= insertInput('Aller', 'date_fin', 'date') ?>
         <?= insertInput('Retour', 'date_retour', 'date') ?>
     </div>
@@ -33,22 +33,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
         <?= insertSelect('Enfants', 'enfants', $zeroToDixArray) ?>
     </div>
 
-    <div class="box-dates">
-        <div class="form-radios">
-            <p class="label-btn-radios">Aller retour</p>
-            <input type="radio" id="oui"
-            name="aller_retour" value="oui">
-            <label for="oui">Oui</label>
+    <div class="form-radios">
+        <p class="label-btn-radios">Aller retour</p>
+        <input type="radio" id="oui"
+        name="aller_retour" value="oui">
+        <label for="oui">Oui</label>
 
-            <input type="radio" id="non"
-            name="aller_retour" value="non">
-            <label for="non">Non</label>
-        </div>
+        <input type="radio" id="non"
+        name="aller_retour" value="non">
+        <label for="non">Non</label>
     </div>
 
-    <div>
-        <p>Prix estimé :</p>
-    </div>
     <button type="submit" class="button">Envoyer</button>
 </form>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, corporis eveniet est, corrupti tempore magnam fugit quis enim soluta nam nemo rerum perspiciatis odio aliquid voluptatem architecto quia natus maxime fugiat recusandae. Molestias consectetur iste velit quidem similique cum enim neque sequi ea, voluptatum architecto, laborum, saepe autem ex reiciendis!</p>

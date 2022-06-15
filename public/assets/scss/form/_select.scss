@@ -9,6 +9,11 @@
   }
 }
 
+.box-select {
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
 select {
   width: 250px;
   max-width: 400px;

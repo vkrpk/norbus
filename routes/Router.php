@@ -1,7 +1,7 @@
 <?php
 namespace Router;
 
-use Exceptions\RouteNotFoundException;
+use App\Exceptions\NotFoundException;
 
 class Router
 {
@@ -36,7 +36,7 @@ class Router
             }
         }
 
-        throw new \Exception("La page demandé est introuvable.");
+        throw new NotFoundException("La page demandé est introuvable.");
     }
 
 

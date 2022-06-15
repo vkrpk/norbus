@@ -69,3 +69,13 @@ input[type='date']:hover::-webkit-calendar-picker-indicator {
 input[type='date']:hover::-webkit-calendar-picker-indicator:hover {
   opacity: 0.15;
 }
+
+@media screen and (min-width: 768px) {
+  .box-select {
+    flex-flow: row nowrap !important;
+    width: 510px;
+    & div {
+      width: 250px;
+    }
+  }
+}

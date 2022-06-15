@@ -10,6 +10,10 @@ body {
   font-size: 10px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -197,6 +201,16 @@ input[type=date]:hover::-webkit-calendar-picker-indicator:hover {
   opacity: 0.15;
 }
 
+@media screen and (min-width: 768px) {
+  .box-select {
+    -ms-flex-flow: row nowrap !important;
+        flex-flow: row nowrap !important;
+    width: 510px;
+  }
+  .box-select div {
+    width: 250px;
+  }
+}
 .form-radios * {
   margin-top: auto;
   vertical-align: bottom;
@@ -279,6 +293,12 @@ input[type=date]:hover::-webkit-calendar-picker-indicator:hover {
   margin-right: auto;
 }
 
+.box-select {
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  gap: 1rem;
+}
+
 select {
   width: 250px;
   max-width: 400px;
@@ -307,6 +327,7 @@ form {
   color: #444;
   font-size: 1.5rem;
   gap: 3rem;
+  width: auto;
 }
 form * {
   border-radius: 0.5rem !important;

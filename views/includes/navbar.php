@@ -1,7 +1,7 @@
 <nav class="nav">
     <div class="container">
         <div class="logo">
-            <a href="#">
+            <a href="/">
                 <img src="https://zupimages.net/up/22/22/zude.png" alt="logo">
             </a>
         </div>

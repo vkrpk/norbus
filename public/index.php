@@ -1,9 +1,10 @@
 <?php
 
 require '../vendor/autoload.php';
+
+use App\Exceptions\NotFoundException;
 use Router\Router;
 use Symfony\Component\Debug\Debug;
-use Exceptions\RouteNotFoundException;
 
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
@@ -33,4 +34,8 @@ $router->get('/', 'App\Controllers\VilleController@index');
 $router->get('/order/:id', 'App\Controllers\OrderController@show');
 $router->get('/option/:id', 'App\Controllers\OrderController@option');
 
-$router->run();
+try {
+    $router->run();
+} catch (NotFoundException $e) {
+    echo $e->error404();
+}

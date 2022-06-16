@@ -32,7 +32,7 @@ class OrderController extends Controller
         $orderModel = new Order($this->getDB());
         $order = $orderModel->query("
             SELECT o.*, v.nom 'ville_depart_aller', va.nom 'ville_depart_retour', CONCAT(u.prenom, ' ', u.nom) as noms FROM orders o JOIN villes v ON o.fk_ville_aller_id = v.id JOIN villes va ON o.fk_ville_retour_id = va.id JOIN users u ON o.fk_user_id = u.id WHERE o.id = ?
-        ", $id, true);
+        ", [$id], true);
 
         return $this->view('orders.show', compact('order'));
     }

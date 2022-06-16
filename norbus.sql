@@ -48,8 +48,6 @@ CREATE TABLE option_order(
    fk_order_id INT,
    quantite INT NOT NULL DEFAULT 1,
    PRIMARY KEY(fk_option_id, fk_order_id),
-   UNIQUE(fk_option_id),
-   UNIQUE(fk_order_id),
    FOREIGN KEY(fk_option_id) REFERENCES options(id),
    FOREIGN KEY(fk_order_id) REFERENCES orders(id)
 );

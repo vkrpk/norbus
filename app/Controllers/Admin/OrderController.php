@@ -43,7 +43,8 @@ class OrderController extends Controller
         $order = (new Order($this->getDB()))->findById($id);
         $villes = (new Ville($this->getDB()))->getVilles();
         $options = (new Option($this->getDB()))->all();
+        $optionsAlreadyCheck =  $order->getOptions();
 
-        return $this->view('admin.order.edit', compact('order', 'villes', 'options'));
+        return $this->view('admin.order.edit', compact('order', 'villes', 'options', 'optionsAlreadyCheck'));
     }
 }

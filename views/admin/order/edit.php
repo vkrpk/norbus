@@ -33,7 +33,11 @@ for ($i=0; $i <= 10 ; $i++) {
         <legend>Veuillez sélectionner vos options</legend>
         <?php foreach($params['options'] as $option):?>
                 <div class="form-check">
-                    <input type="checkbox" value="<?=$option->id?>" id="<?=$option->nom?>" name="options[]"></input>
+                    <input type="checkbox" value="<?=$option->id?>" id="<?=$option->nom?>" name="options[]"
+                        <?php foreach($params['optionsAlreadyCheck'] as $optionChecked):
+                            echo $optionChecked->id == $option->id ? 'checked' : '';
+                        endforeach;?>
+                    ></input>
                     <label for="<?=$option->nom?>"><?=$option->nom?></label>
                 </div>
             <?php endforeach;?>

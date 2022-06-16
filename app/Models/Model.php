@@ -63,7 +63,6 @@ abstract class Model
         }
 
         $data['id'] = $id;
-        // dd($data, $sqlRequestPart," UPDATE {$this->table} SET {$sqlRequestPart} WHERE id=:id");
 
         return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id=:id", $data);
     }

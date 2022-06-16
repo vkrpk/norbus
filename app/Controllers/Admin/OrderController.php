@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Models\Order;
 use App\Models\Ville;
 use App\Controllers\Controller;
+use App\Models\Option;
 
 class OrderController extends Controller
 {
@@ -41,7 +42,8 @@ class OrderController extends Controller
     {
         $order = (new Order($this->getDB()))->findById($id);
         $villes = (new Ville($this->getDB()))->getVilles();
+        $options = (new Option($this->getDB()))->all();
 
-        return $this->view('admin.order.edit', compact('order', 'villes'));
+        return $this->view('admin.order.edit', compact('order', 'villes', 'options'));
     }
 }

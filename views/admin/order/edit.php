@@ -29,6 +29,16 @@ for ($i=0; $i <= 10 ; $i++) {
         <?= insertSelect('Enfants', 'enfant', $zeroToDixArray, $params['order']->enfant) ?>
     </div>
 
+    <fieldset>
+        <legend>Veuillez sélectionner vos options</legend>
+        <?php foreach($params['options'] as $option):?>
+                <div class="form-check">
+                    <input type="checkbox" value="<?=$option->id?>" id="<?=$option->nom?>" name="options[]"></input>
+                    <label for="<?=$option->nom?>"><?=$option->nom?></label>
+                </div>
+            <?php endforeach;?>
+    </fieldset>
+
     <div class="form-radios">
         <?php
             if($params['order']->bool_aller_retour == 1) {

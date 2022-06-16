@@ -36,4 +36,21 @@ HTML;
     {
         return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_arrivee_id WHERE o.id = ?", [$id], true);
     }
+
+    public function update(int $id, array $data, ?array $relations = null)
+    {
+        parent::update($id, $data);
+
+        $stmt = $this->db->getPDO()->prepare("DELETE FROM option_order WHERE fk_order_id = ?");
+        $result = $stmt->execute([$id]);
+
+        foreach ($relations as $optionId) {
+            $stmt = $this->db->getPDO()->prepare("INSERT INTO option_order (fk_option_id, fk_order_id) VALUES (?, ?)");
+            $stmt->execute([$optionId, $id]);
+        }
+
+        if($result) {
+            return true;
+        }
+    }
 }

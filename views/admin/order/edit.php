@@ -29,20 +29,6 @@ for ($i=0; $i <= 10 ; $i++) {
         <?= insertSelect('Enfants', 'enfant', $zeroToDixArray, $params['order']->enfant) ?>
     </div>
 
-    <fieldset>
-        <legend>Veuillez sélectionner vos options</legend>
-        <?php foreach($params['options'] as $option):?>
-                <div class="form-check">
-                    <input type="checkbox" value="<?=$option->id?>" id="<?=$option->nom?>" name="options[]"
-                        <?php foreach($params['optionsAlreadyCheck'] as $optionChecked):
-                            echo $optionChecked->id == $option->id ? 'checked' : '';
-                        endforeach;?>
-                    ></input>
-                    <label for="<?=$option->nom?>"><?=$option->nom?></label>
-                </div>
-            <?php endforeach;?>
-    </fieldset>
-
     <div class="form-radios">
         <?php
             if($params['order']->bool_aller_retour == 1) {
@@ -62,6 +48,20 @@ for ($i=0; $i <= 10 ; $i++) {
         name="bool_aller_retour" value="0" <?= $non ?>>
         <label for="non">Non</label>
     </div>
+
+    <fieldset>
+        <legend>Veuillez sélectionner vos options</legend>
+        <?php foreach($params['options'] as $option):?>
+                <div class="form-check">
+                    <input type="checkbox" value="<?=$option->id?>" id="<?=$option->nom?>" name="options[]"
+                        <?php foreach($params['optionsAlreadyCheck'] as $optionChecked):
+                            echo $optionChecked->id == $option->id ? 'checked' : '';
+                        endforeach;?>
+                    ></input>
+                    <label for="<?=$option->nom?>"><?=$option->nom?></label>
+                </div>
+            <?php endforeach;?>
+    </fieldset>
 
     <button type="submit" class="button">Envoyer</button>
 </form>

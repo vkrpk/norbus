@@ -31,7 +31,10 @@ class OrderController extends Controller
     public function update(int $id)
     {
         $order = new Order($this->getDB());
-        $result = $order->update($id, $_POST);
+        $options = array_pop($_POST);
+        // dd($_POST, $options);
+
+        $result = $order->update($id, $_POST, $options);
 
         if($result){
             return header('Location: /admin/orders');

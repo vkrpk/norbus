@@ -30,7 +30,7 @@ abstract class Model
     {
         $method = is_null($param) ? 'query' : 'prepare';
 
-        if(strpos($sql, 'DELETE') === 0 || strpos($sql, 'UPDATE') === 0 || strpos($sql, 'CREATE') === 0){
+        if(strpos($sql, 'DELETE') === 0 || strpos($sql, 'UPDATE') === 0 || strpos($sql, 'INSERT') === 0){
             $stmt = $this->db->getPDO()->$method($sql);
             $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
             return $stmt->execute($param);
@@ -52,7 +52,7 @@ abstract class Model
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-    public function update(int $id, array $data)
+    public function update(int $id, array $data, ?array $relations = null)
     {
         $sqlRequestPart = "";
         $i = 1;

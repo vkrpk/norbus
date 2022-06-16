@@ -38,8 +38,8 @@ $router->get('/admin/orders', 'App\Controllers\Admin\OrderController@index');
 $router->post('/admin/oder/delete/:id', 'App\Controllers\Admin\OrderController@destroy');
 $router->get('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@edit');
 $router->post('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@update');
-$router->get('/admin/order/create', 'App\Controllers\OrderController@createOrder');
-$router->post('/', 'App\Controllers\VilleController@createOrder');
+$router->get('/admin/order/create', 'App\Controllers\Admin\OrderController@create');
+$router->post('/admin/order/create', 'App\Controllers\Admin\OrderController@createOrder');
 
 try {
     $router->run();

@@ -1,5 +1,7 @@
 <h1>Administration des articles</h1>
 
+<a class="button" href="/admin/order/create">Réservez</a>
+
 <table>
     <caption>Statement Summary</caption>
     <thead>

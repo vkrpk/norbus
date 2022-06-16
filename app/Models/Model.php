@@ -26,6 +26,23 @@ abstract class Model
         return $this->query("SELECT * from {$this->table} WHERE id = ?", [$id], true);
     }
 
+    public function create(array $data, ?array $relations = null)
+    {
+        $firstParenthesis = "";
+        $secondParenthesis = "";
+        $i = 1;
+
+        foreach ($data as $key => $value) {
+            $comma = $i === count($data) ? "" : ", ";
+            $firstParenthesis .= "{$key}{$comma}";
+            $secondParenthesis .= ":{$key}{$comma}";
+            $i++;
+        }
+        // dd("INSERT INTO {$this->table} ($firstParenthesis) VALUES ($secondParenthesis)");
+        return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUES ($secondParenthesis)", $data);
+
+    }
+
     public function query(string $sql, array $param = null, bool $single = null)
     {
         $method = is_null($param) ? 'query' : 'prepare';

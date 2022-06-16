@@ -27,6 +27,19 @@ HTML;
         WHERE op.fk_order_id = ?", [$this->id]);
     }
 
+    public function create(array $data, ?array $relations = null)
+    {
+        parent::create($data);
+        $id = $this->query("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
+        $id = $id[0]->id;
+        foreach ($relations as $optionId) {
+            $stmt = $this->db->getPDO()->prepare("INSERT INTO option_order (fk_option_id, fk_order_id) VALUES (?, ?)");
+            $stmt->execute([$optionId, $id]);
+        }
+
+        return true;
+    }
+
     public function getVilleDepart(int $id)
     {
         return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_depart_id WHERE o.id = ?", [$id], true);

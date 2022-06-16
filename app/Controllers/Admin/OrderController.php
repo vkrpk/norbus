@@ -17,6 +17,25 @@ class OrderController extends Controller
         return $this->view('admin.order.index', compact('orders'));
     }
 
+    public function create()
+    {
+        $villes = (new Ville($this->getDB()))->getVilles();
+        $options = (new Option($this->getDB()))->all();
+        return $this->view('admin.order.form', compact('options', 'villes'));
+    }
+
+    public function createOrder()
+    {
+        $order = new Order($this->getDB());
+        $options = array_pop($_POST);
+
+        $result = $order->create($_POST, $options);
+
+        if($result){
+            return header('Location: /admin/orders');
+        }
+    }
+
     public function destroy(int $id)
     {
         $order = new Order($this->getDB());
@@ -48,6 +67,6 @@ class OrderController extends Controller
         $options = (new Option($this->getDB()))->all();
         $optionsAlreadyCheck =  $order->getOptions();
 
-        return $this->view('admin.order.edit', compact('order', 'villes', 'options', 'optionsAlreadyCheck'));
+        return $this->view('admin.order.form', compact('order', 'villes', 'options', 'optionsAlreadyCheck'));
     }
 }

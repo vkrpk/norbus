@@ -3,7 +3,7 @@
 <a class="button" href="/admin/order/create">Réservez</a>
 
 <table>
-    <caption>Statement Summary</caption>
+    <caption>Résumé des réservations</caption>
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -19,13 +19,22 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($params['orders'] as $order): ?>
+        <?php
+
+use App\Models\Ville;
+
+ foreach ($params['orders'] as $order): ?>
             <tr>
                 <td data-label="id"><?= $order->id ?></td>
                 <td data-label="created_at"><?= $order->created_at?></td>
-                <td data-label="vlle_depart"><?= $order->fk_ville_depart_id ?></td>
+
+                <td data-label="ville_depart">
+                    <?= $order->getVilleDepart($order->id)->nom;?>
+                </td>
                 <td data-label="date_depart"><?= $order->date_aller?></td>
-                <td data-label="ville_arrivee"><?= $order->fk_ville_arrivee_id ?></td>
+                <td data-label="ville_arrivee">
+                    <?= $order->getVilleArrivee($order->id)->nom;?>
+                </td>
                 <td data-label="date_retour"><?= $order->date_retour?></td>
                 <td data-label="isAllerRetour"><?= $order->bool_aller_retour ?></td>
                 <td data-label="adulte"><?= $order->adulte?></td>

@@ -13,8 +13,9 @@ class OrderController extends Controller
     {
         $order = new Order($this->getDB());
         $orders = $order->all();
+        $villes = (new Ville($this->getDB()))->getVilles();
 
-        return $this->view('admin.order.index', compact('orders'));
+        return $this->view('admin.order.index', compact('orders', 'villes'));
     }
 
     public function create()
@@ -38,6 +39,8 @@ class OrderController extends Controller
 
     public function destroy(int $id)
     {
+        $this->isAdmin();
+
         $order = new Order($this->getDB());
 
         $result = $order->destroy($id);

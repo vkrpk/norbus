@@ -42,12 +42,18 @@ HTML;
 
     public function getVilleDepart(int $id)
     {
-        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_depart_id WHERE o.id = ?", [$id], true);
+        $stmt = $this->db->getPDO()->prepare("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_depart_id WHERE o.id = ?");
+        $stmt->execute([$id]);
+        $ville = ($stmt->fetch());
+        return $ville;
     }
 
     public function getVilleArrivee(int $id)
     {
-        return $this->query("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_arrivee_id WHERE o.id = ?", [$id], true);
+        $stmt = $this->db->getPDO()->prepare("SELECT v.nom FROM villes v JOIN orders o ON v.id = o.fk_ville_arrivee_id WHERE o.id = ?");
+        $stmt->execute([$id]);
+        $ville = ($stmt->fetch());
+        return $ville;
     }
 
     public function update(int $id, array $data, ?array $relations = null)

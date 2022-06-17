@@ -414,6 +414,10 @@ select option {
   position: relative;
 }
 
+input[type=checkbox]:hover {
+  cursor: pointer;
+}
+
 .form-check input {
   position: absolute;
   opacity: 0;

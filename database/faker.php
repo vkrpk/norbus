@@ -17,7 +17,9 @@ for ($i=1; $i <= 30; $i++) {
         $pdo->exec($query);
 }
 for ($i=1; $i <= 30; $i++) {
-    $query = "INSERT INTO users (mail, prenom, nom, telephone, adresse, fk_ville_id) VALUES (
+    $query = "INSERT INTO users (password, admin, mail, prenom, nom, telephone, adresse, fk_ville_id) VALUES (
+        'password',
+        {$faker->numberBetween(0, 1)},
         '{$faker->email}',
         '{$faker->firstName}',
         '{$faker->lastName}',

@@ -28,17 +28,19 @@ define('DB_PWD', $_SERVER["SERVER_NAME"] !== "norbus.test" ? '83d0638c' : '');
 
 $router = new Router($_GET['url']);
 
-$router->get('/home', 'App\Controllers\OrderController@welcome');
-// $router->post('/', 'App\Controllers\OrderController@index');
-$router->get('/', 'App\Controllers\VilleController@index');
 $router->get('/order/:id', 'App\Controllers\OrderController@show');
 $router->get('/option/:id', 'App\Controllers\OrderController@option');
+
+$router->get('/login', 'App\Controllers\UserController@login');
+$router->post('/login', 'App\Controllers\UserController@loginPost');
+$router->get('/logout', 'App\Controllers\UserController@logout');
 
 $router->get('/admin/orders', 'App\Controllers\Admin\OrderController@index');
 $router->post('/admin/oder/delete/:id', 'App\Controllers\Admin\OrderController@destroy');
 $router->get('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@edit');
 $router->post('/admin/order/edit/:id', 'App\Controllers\Admin\OrderController@update');
-$router->get('/admin/order/create', 'App\Controllers\Admin\OrderController@create');
+
+$router->get('/', 'App\Controllers\Admin\OrderController@create');
 $router->post('/admin/order/create', 'App\Controllers\Admin\OrderController@createOrder');
 
 try {

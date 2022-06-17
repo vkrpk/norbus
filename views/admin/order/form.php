@@ -17,8 +17,9 @@ for ($i=0; $i <= 10 ; $i++) {
     </div>
 
     <div class="box-select">
-        <?= insertInput('Aller', 'date_aller', 'date', $params['order']->date_aller ?? '') ?>
-        <?= insertInput('Retour', 'date_retour', 'date', $params['order']->date_retour ?? '') ?>
+        <?php $min = (new DateTime())->format('Y-m-d'); ?>
+        <?= insertInput('Aller', 'date_aller', 'date', $params['order']->date_aller ?? $min, $min) ?>
+        <?= insertInput('Retour', 'date_retour', 'date', $params['order']->date_retour ?? $min, $min) ?>
     </div>
 
     <div>

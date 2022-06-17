@@ -1,4 +1,15 @@
 <?php
+if(isset($_SESSION['errors'])) {
+
+    foreach ($_SESSION['errors'] as $errorsArray) {
+        foreach ($errorsArray as $errors) {
+            foreach ($errors as $error) {
+                echo "<li>{$error}</li>";
+            }
+        }
+    }
+
+}
 require VIEWS . 'includes/form/input.php';
 ?>
 <h1>Se connecter</h1>

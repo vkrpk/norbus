@@ -1,7 +1,5 @@
 <h1>Administration des articles</h1>
 
-<a class="button" href="/admin/order/create">Réservez</a>
-
 <table>
     <caption>Résumé des réservations</caption>
     <thead>
@@ -36,7 +34,7 @@ use App\Models\Ville;
                     <?= $order->getVilleArrivee($order->id)->nom;?>
                 </td>
                 <td data-label="date_retour"><?= $order->date_retour?></td>
-                <td data-label="isAllerRetour"><?= $order->bool_aller_retour ?></td>
+                <td data-label="isAllerRetour"><?= $order->bool_aller_retour == 1 ? 'Oui' : 'Non' ?></td>
                 <td data-label="adulte"><?= $order->adulte?></td>
                 <td data-label="enfant"><?= $order->enfant?></td>
                 <td data-label="action">

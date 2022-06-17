@@ -8,12 +8,12 @@
         <div id="mainListDiv" class="main_list">
             <ul class="navlinks">
                 <li><a href="/admin/orders">Réservations</a></li>
-                <li><a href="/admin/order/create">Réservez</a></li>
+                <li><a href="/">Réservez</a></li>
                 <?php if(isset($_SESSION['auth'])):?>
                     <li><a href="/logout">Se déconnecter</a></li>
                 <?php else:?>
-                    <li><a href="">Inscription</a></li>
-                    <li><a href="">Connexion</a></li>
+                    <!-- <li><a href="">Inscription</a></li> -->
+                    <!-- <li><a href="/login">Connexion</a></li> -->
                 <?php endif;?>
                 <form action="" method="POST" id="form-logout">
                     <!-- <li><a href="" onclick="event.preventDefault();document.getElementById('form-logout').submit();">Deconnexion</a></li> -->

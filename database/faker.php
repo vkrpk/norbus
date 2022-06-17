@@ -50,7 +50,7 @@ for ($i = 1; $i <= 30; $i++) {
     // '{$dateRetour->format('Y-m-d H-i-s' )}',
 }
 
-$options = ['direct', 'accessible aux handicapés', 'regionnal', 'national', 'international', 'couchette', 'deux étages', 'toilette', 'première classe', 'seconde classe', 'petit-déjeune', 'déjeuner', 'diner'];
+$options = ['direct', 'regionnal', 'national', 'international', 'couchette', 'deux étages', 'première classe', 'seconde classe', 'petit-déjeuner', 'déjeuner', 'diner'];
 
 for ($i = 0; $i < count($options); $i++) {
     $query = "INSERT INTO options (nom) VALUES ('{$options[$i]}')";

@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST !== []){
 
     <div class="form-radios">
         <p class="label-btn-radios">Aller retour</p>
-        <input type="radio" id="oui"
+        <input required type="radio" id="oui"
         name="aller_retour" value="oui">
         <label for="oui">Oui</label>
 

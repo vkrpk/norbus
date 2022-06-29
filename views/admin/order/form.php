@@ -41,7 +41,7 @@ for ($i=0; $i <= 10 ; $i++) {
             }
         ?>
         <p class="label-btn-radios">Aller retour</p>
-        <input type="radio" id="oui"
+        <input checked type="radio" id="oui"
         name="bool_aller_retour" value="1" <?= $oui ?? 'oui' ?>>
         <label for="oui">Oui</label>
 

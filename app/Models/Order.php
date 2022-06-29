@@ -27,8 +27,14 @@ HTML;
         WHERE op.fk_order_id = ?", [$this->id]);
     }
 
-    public function create(array $data, ?array $relations = null)
+    public function create(array $data,  $relations = null)
     {
+        // dd($relations);
+        if(!array_key_exists('bool_aller_retour', $data)){
+            $data['bool_aller_retour'] = '1';
+            $relations =[];
+            $relations[] = '1';
+        }
         parent::create($data);
         $id = $this->query("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
         $id = $id[0]->id;

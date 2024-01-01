@@ -8,7 +8,7 @@ on:
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
-  APP_IMAGE_NAME: ${{ github.actor }}/norbus:latest
+  APP_IMAGE_NAME: ${{ github.actor }}/norbus_app:latest
   DB_IMAGE_NAME: ${{ github.actor }}/norbus_database:latest
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       - name: Build and Publish App
         run: |
           docker-compose build app
-          docker tag norbus ${{ env.REGISTRY }}/${{ env.APP_IMAGE_NAME }}
+          docker tag norbus_app ${{ env.REGISTRY }}/${{ env.APP_IMAGE_NAME }}
           docker push ${{ env.REGISTRY }}/${{ env.APP_IMAGE_NAME }}
       - name: Build and Publish db (if needed)
         if: github.ref == 'refs/heads/main'

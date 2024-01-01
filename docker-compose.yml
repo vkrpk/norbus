@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+    ports:
+      - '8000:80'
+
+  database:
+    restart: always
+    build:
+      context: ./sql
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - '3309:3306'
+      - '33060:33060'
+  adminer:
+    depends_on:
+      - database
+    image: adminer
+    restart: always
+    ports:
+      - "8083:8080"
+
+volumes:
+  mysql:
+
+#networks:
+#  traefik:
+#    name: traefik_webgateway
+#    external: true
+#
+  #    labels:
+  #      - "traefik.http.routers.blog-php.rule=Host(`blog-php.victork.fr`)"
+  #      - "traefik.http.routers.blog-php-tls.tls.domains[0].main=blog-php.victork.fr"
+  #      - "traefik.http.routers.blog-php-tls.tls.domains[0].sans=blog-php-*.victork.fr"
+  #      - "traefik.http.routers.blog-php.tls=true"
+  #    networks:
+  #      - traefik
+  
+  #  phpmyadmin:
+  #    depends_on:
+  #      - db
+  #    container_name: phpmyadmin-mysql-mysql_8.2.0
+  #    image: phpmyadmin:5.2.1-apache
+  #    restart: unless-stopped
+  #    ports:
+  #      - '3308:80'
+  #    environment:
+  #      - PMA_HOST=db
+  #    networks:
+  #      - traefik

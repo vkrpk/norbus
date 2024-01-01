@@ -4,7 +4,7 @@ use Database\DBConnection;
 use Faker\Factory;
 
 require './vendor/autoload.php';
-$DBConnection = new DBConnection("norbus", '127.0.0.1', 'root', '');
+$DBConnection = new DBConnection("norbus", 'database', 'root', 'root');
 $pdo = $DBConnection->getPDO();
 
 $faker = Faker\Factory::create('fr_FR'); // create a French faker
@@ -57,7 +57,7 @@ for ($i = 0; $i < count($options); $i++) {
     $pdo->exec($query);
 }
 
-for ($i=1; $i <= 13; $i++) {
+for ($i=1; $i <= 11; $i++) {
     $option = array_rand($options);
     $query = "INSERT INTO option_order (fk_option_id, fk_order_id, quantite) VALUES (
         {$faker->numberBetween(1, 13)},

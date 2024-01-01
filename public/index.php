@@ -21,20 +21,11 @@ $whoops->register();
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) );
 define('ROOT', dirname(__DIR__));
-// define('DB_NAME', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'heroku_a07462fa3a91fd4' : 'norbus');
-// define('DB_HOST', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'eu-cdbr-west-02.cleardb.net' : '127.0.0.1');
-// define('DB_USER', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'b857ac46ef3acc' : 'root');
-// define('DB_PWD', $_SERVER["SERVER_NAME"] !== "norbus.test" ? '83d0638c' : '');
 
-define('DB_NAME', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'heroku_a07462fa3a91fd4' : 'norbus');
-define('DB_HOST', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'eu-cdbr-west-02.cleardb.net' : '127.0.0.1');
-define('DB_USER', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'b857ac46ef3acc' : 'root');
-define('DB_PWD', $_SERVER["SERVER_NAME"] !== "norbus.test" ? '83d0638c' : '');
-
-// define('DB_NAME', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'victo1854461' : 'norbus');
-// define('DB_HOST', $_SERVER["SERVER_NAME"] !== "norbus.test" ? '185.98.131.148' : '127.0.0.1');
-// define('DB_USER', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'victo1854461' : 'root');
-// define('DB_PWD', $_SERVER["SERVER_NAME"] !== "norbus.test" ? 'victo1854461' : '');
+define('DB_NAME', 'norbus');
+define('DB_HOST', 'database');
+define('DB_USER', 'root');
+define('DB_PWD', 'root');
 
 $router = new Router($_GET['url']);
 
